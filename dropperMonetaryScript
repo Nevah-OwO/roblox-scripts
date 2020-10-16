@@ -1,0 +1,31 @@
+local parts = game.Workspace.Parts
+local conveyor1 = parts.conveyor1
+local currencyGauge = parts.textLabelMoneyButton.currencyGauge.currencyGaugeText
+local moneyValue = game.ServerStorage.moneyValue
+
+gameCurrency = 0
+
+conveyor1.Touched:connect(function(cash1)
+	cash1:Destroy()
+	moneyValue.Value = moneyValue.Value + 2
+	currencyGauge.Text = moneyValue.Value
+	
+end)
+-- Dropping script
+function fire1()
+	local S = Instance.new("Part")
+	S.Position = script.Parent.Position
+	S.Size = Vector3.new(3, 0.5, 2)
+	S.BrickColor = BrickColor.new("Dark stone grey")
+	S.Material = Enum.Material.Rock
+	S.BottomSurface = "Smooth"
+	S.TopSurface = "Smooth"
+	S.Name = "cash1"
+	S.Parent = script.Parent
+end
+
+while true do
+	wait(2)
+	fire1()
+end
+
