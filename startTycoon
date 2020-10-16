@@ -1,0 +1,17 @@
+-- Variables
+local parts = game.Workspace.Parts
+local startTycoon = parts["Start - [Free]"]
+local conveyor1 = parts.conveyor1
+local dropper1 = game.ReplicatedStorage.dropper1
+local base1 = game.ServerStorage.base1
+local startDestroy = false
+-- Functions 
+
+-- Script 
+startTycoon.Touched:connect(function()
+	if not startDestroy then
+		startDestroy = true
+		startTycoon:Destroy()
+		dropper1.Parent = parts
+	end
+end)
